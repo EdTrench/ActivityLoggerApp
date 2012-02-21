@@ -9,7 +9,7 @@ namespace ActivityLoggerApp.Models.Activities
     {
         public RunActivity()
         {
-            //constructor
+            
         }
     }
 }
