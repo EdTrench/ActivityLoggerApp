@@ -1,0 +1,104 @@
+﻿@model ActivityLoggerApp.Models.Person
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Rider</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Weight)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Weight)
+            @Html.ValidationMessageFor(model => model.Weight)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Dob)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Dob)
+            @Html.ValidationMessageFor(model => model.Dob)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Category)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Category)
+            @Html.ValidationMessageFor(model => model.Category)
+        </div>
+
+        <table>
+            <tr>
+                <th>Bikes</th>
+            </tr>
+
+            @foreach (var bike in Model.Bikes)
+            {
+                <tr>
+                    <td>@bike.Name</td>
+                </tr>
+            }
+        
+        </table>
+
+
+
+        <table>
+            <tr>
+                <th>Bikes</th>
+            </tr>
+
+             @foreach (var bike in ViewBag.Bikes)
+             {
+                <tr>
+                    <td>@bike.Name</td>
+                </tr>
+             }
+        
+        </table>
+
+        <fieldset>
+            <legend>Edit Bike</legend>
+            <p>
+                @*@Html.LabelFor(bike => bike.Bikes.Name)*@
+                @*@Html.DropDownListFor(bike => bike., ViewBag.Bikes as SelectList)*@
+            
+            </p>
+        
+        
+        </fieldset>
+
+        @*        <div class="editor-field">
+            @Html.DropDownListFor(model => model.Bikes, new SelectList(Model.Bikes))
+        </div>*@
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

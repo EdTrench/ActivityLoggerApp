@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="ActivityLoggerApp"
+                   namespace="ActivityLoggerApp.Models">
+
+  <class name="Bike">
+    <id name="Id">
+      <generator class="guid" />
+    </id>
+    <property name="Name" />
+    <many-to-one name ="Person" column="PersonId" lazy="false"/>
+    <!--<bag name="Rider" inverse="true"/>
+      <key column="RiderId" />
+      <one-to-many class="Rider" />
+    </bag>-->
+    <!--<property name="Rider" />-->
+    <property name="Type" />
+  </class>
+
+</hibernate-mapping>
