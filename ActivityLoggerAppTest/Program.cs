@@ -13,7 +13,7 @@ namespace ActivityLoggerAppTest
         static void Main(string[] args)
         {
 
-            Activity test = new Activity();
+            
             
         }
     }

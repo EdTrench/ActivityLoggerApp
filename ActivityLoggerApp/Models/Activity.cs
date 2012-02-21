@@ -6,7 +6,7 @@ using ActivityLoggerApp.Models.Interfaces;
 
 namespace ActivityLoggerApp.Models
 {
-    public class Activity
+    public abstract class Activity
     {
 
 
