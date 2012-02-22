@@ -15,13 +15,13 @@ namespace ActivityLoggerApp.Models.Factories
         {
             switch (personType)
             {
-                case "Ride":
+                case "Rider":
                     person = new RidePerson();
                     break;
-                case "Run":
+                case "Runner":
                     person = new RunPerson();
                     break;
-                case "Walk":
+                case "Walker":
                     person = new WalkPerson();
                     break;
             }

@@ -7,5 +7,6 @@ namespace ActivityLoggerApp.Models.Interfaces
 {
     interface IPerson
     {
+        Person CreatePerson(String personType);
     }
 }
