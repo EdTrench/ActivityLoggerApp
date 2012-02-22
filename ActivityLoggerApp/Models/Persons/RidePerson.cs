@@ -5,7 +5,7 @@ using System.Web;
 
 namespace ActivityLoggerApp.Models.Persons
 {
-    private enum Category
+    public enum Category
     {
         First,
         Second,
@@ -15,6 +15,7 @@ namespace ActivityLoggerApp.Models.Persons
 
     public class RidePerson : Person
     {
+
         public virtual IList<Bike> Bikes { get; set; }
         public virtual Category Category { get; set; }
     }
