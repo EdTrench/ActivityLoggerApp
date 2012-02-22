@@ -72,6 +72,7 @@
     <Compile Include="Controllers\BikeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
+    <Compile Include="Controllers\Persons\RidePersonController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -89,7 +90,6 @@
     <Compile Include="Models\Persons\RidePerson.cs" />
     <Compile Include="Models\Persons\RunPerson.cs" />
     <Compile Include="Models\Persons\WalkPerson.cs" />
-    <Compile Include="Models\test.cs" />
     <Compile Include="Repositories\Interfaces\IPersonRepositry.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Repositories\Interfaces\IBikeRepositry.cs" />
@@ -105,6 +105,7 @@
     <Compile Include="Repositories\NHibernateHelper.cs" />
     <Compile Include="Repositories\Interfaces\IRideRepositry.cs" />
     <Compile Include="Repositories\PersonRepositry.cs" />
+    <Compile Include="Repositories\Persons\RidePersonRepositry.cs" />
     <Compile Include="ViewModels\BikeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +221,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Mappings\Activites\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Person\Index.cshtml" />

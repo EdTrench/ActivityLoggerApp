@@ -9,7 +9,7 @@ namespace ActivityLoggerApp.ViewModels
 {
     public class BikeViewModel
     {
-        public virtual Bike bike { get; set; }
-        public virtual SelectList riders { get; set; }
+        public virtual Bike Bike { get; set; }
+        public virtual SelectList Riders { get; set; }
     }
 }

@@ -4,8 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ActivityLoggerApp.Models;
+using ActivityLoggerApp.Models.Persons;
 using ActivityLoggerApp.ViewModels;
 using ActivityLoggerApp.Repositories;
+using ActivityLoggerApp.Repositories.Persons;
 
 
 namespace ActivityLoggerApp.Controllers
@@ -65,14 +67,14 @@ namespace ActivityLoggerApp.Controllers
         public ActionResult Edit(Int64 id)
         {
             BikeRepositry bikeRepositry = new BikeRepositry();
-            PersonRepositry PersonRepositry = new PersonRepositry();
+            RidePersonRepositry ridePersonRepositry = new RidePersonRepositry();
 
             var viewModel = new BikeViewModel
             {
-                bike = bikeRepositry.GetById(id),
+                Bike = bikeRepositry.GetById(id),
             };
 
-            viewModel.riders = new SelectList(PersonRepositry.GetAll(), "Id", "Name", viewModel.bike.RidePerson);
+            viewModel.Riders = new SelectList(ridePersonRepositry.GetAll(), "Id", "Name", viewModel.Bike.RidePerson);
 
             return View(viewModel);
         }
@@ -86,10 +88,10 @@ namespace ActivityLoggerApp.Controllers
             try
             {
                 BikeRepositry bikeRepositry = new BikeRepositry();
-                PersonRepositry PersonRepositry = new PersonRepositry();
+                RidePersonRepositry ridePersonRepositry = new RidePersonRepositry();
 
-                editBike.bike.RidePerson = PersonRepositry.GetById(editBike.bike.RidePerson.Id);
-                bikeRepositry.Update(editBike.bike);
+                //editBike.Bike.RidePerson = ridePersonRepositry.GetById(editBike.Bike.RidePerson.Id);
+                bikeRepositry.Update(editBike.Bike);
                 return RedirectToAction("Index");
             }
             catch
