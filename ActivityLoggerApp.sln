@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityLoggerApp", "ActivityLoggerApp\ActivityLoggerApp.csproj", "{72A2A4CF-C574-482A-9D95-B88F9D7A65BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityLoggerAppTest", "ActivityLoggerAppTest\ActivityLoggerAppTest.csproj", "{9A0EFC2B-E9DF-40D1-87D1-0C243061253E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,16 @@ Global
 		{72A2A4CF-C574-482A-9D95-B88F9D7A65BF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{72A2A4CF-C574-482A-9D95-B88F9D7A65BF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{72A2A4CF-C574-482A-9D95-B88F9D7A65BF}.Release|x86.ActiveCfg = Release|Any CPU
+		{9A0EFC2B-E9DF-40D1-87D1-0C243061253E}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{9A0EFC2B-E9DF-40D1-87D1-0C243061253E}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{9A0EFC2B-E9DF-40D1-87D1-0C243061253E}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{9A0EFC2B-E9DF-40D1-87D1-0C243061253E}.Debug|x86.ActiveCfg = Debug|x86
+		{9A0EFC2B-E9DF-40D1-87D1-0C243061253E}.Debug|x86.Build.0 = Debug|x86
+		{9A0EFC2B-E9DF-40D1-87D1-0C243061253E}.Release|Any CPU.ActiveCfg = Release|x86
+		{9A0EFC2B-E9DF-40D1-87D1-0C243061253E}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{9A0EFC2B-E9DF-40D1-87D1-0C243061253E}.Release|Mixed Platforms.Build.0 = Release|x86
+		{9A0EFC2B-E9DF-40D1-87D1-0C243061253E}.Release|x86.ActiveCfg = Release|x86
+		{9A0EFC2B-E9DF-40D1-87D1-0C243061253E}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
