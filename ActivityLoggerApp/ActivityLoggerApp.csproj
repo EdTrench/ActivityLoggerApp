@@ -83,6 +83,7 @@
     <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\Bike.cs" />
     <Compile Include="Models\Factories\ActivityFactory.cs" />
+    <Compile Include="Models\Factories\PersonFactory.cs" />
     <Compile Include="Models\Interfaces\IActivity.cs" />
     <Compile Include="Models\Interfaces\IPerson.cs" />
     <Compile Include="Models\Person.cs" />
