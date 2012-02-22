@@ -12,6 +12,7 @@ namespace ActivityLoggerApp.Repositories
         void Update(Bike bike);
         void Remove(Bike bike);
         Bike GetById(Int64 id);
+        IList<Bike> GetByPersonId(Int64 riderId);
         IList<Bike> GetAll();
     }
 }

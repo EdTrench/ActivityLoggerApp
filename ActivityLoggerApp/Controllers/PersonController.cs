@@ -43,12 +43,12 @@ namespace ActivityLoggerApp.Controllers
         // POST: /Person/Create
 
         [HttpPost]
-        public ActionResult Create(Person rider)
+        public ActionResult Create(Person person)
         {
             try
             {
                 PersonRepositry PersonRepositry = new PersonRepositry();
-                PersonRepositry.Add(rider);
+                PersonRepositry.Add(person);
                 return RedirectToAction("Index");
             }
             catch
@@ -62,11 +62,11 @@ namespace ActivityLoggerApp.Controllers
  
         public ActionResult Edit(Int64 id)
         {
-            PersonRepositry PersonRepositry = new PersonRepositry();
+            PersonRepositry personRepositry = new PersonRepositry();
             BikeRepositry bikeRepositry = new BikeRepositry();
             
-            var model = PersonRepositry.GetById(id);
-            ViewBag.Bikes = bikeRepositry.GetByRider(id);
+            var model = personRepositry.GetById(id);
+            ViewBag.Bikes = bikeRepositry.GetByPersonId(id);
             
             return View(model);
         }

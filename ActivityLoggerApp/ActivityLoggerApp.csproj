@@ -143,7 +143,13 @@
     <EmbeddedResource Include="Mappings\Bike.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mappings\Person.hbm.xml">
+    <EmbeddedResource Include="Mappings\Persons\RidePerson.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mappings\Persons\RunPerson.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mappings\Persons\WalkPerson.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />

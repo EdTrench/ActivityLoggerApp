@@ -7,9 +7,6 @@ namespace ActivityLoggerApp.Models.Activities
 {
     public class WalkActivity : Activity
     {
-        public WalkActivity()
-        {
-            
-        }
+
     }
 }

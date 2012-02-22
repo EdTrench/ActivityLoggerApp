@@ -3,18 +3,18 @@
                    assembly="ActivityLoggerApp"
                    namespace="ActivityLoggerApp.Models">
 
-  <class name="Bike">
+  <class name="RidePerson">
     <id name="Id">
       <generator class="guid" />
     </id>
+    <bag name="Bikes" inverse="true" lazy="false">
+      <key column="PersonId" />
+      <one-to-many class="Bike" />
+    </bag>
     <property name="Name" />
-    <many-to-one name ="RidePerson" column="PersonId" lazy="false"/>
-    <!--<bag name="Rider" inverse="true"/>
-      <key column="RiderId" />
-      <one-to-many class="Rider" />
-    </bag>-->
-    <!--<property name="Rider" />-->
-    <property name="Type" />
+    <property name="Weight" />
+    <property name="Dob" />
+    <property name="Category" />
   </class>
 
 </hibernate-mapping>

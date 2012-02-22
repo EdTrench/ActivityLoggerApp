@@ -41,12 +41,12 @@ namespace ActivityLoggerApp.Repositories
             }
         }
 
-        public IList<Bike> GetByRider(Int64 riderId)
+        public IList<Bike> GetByPersonId(Int64 riderId)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 var query = from bike in session.Query<Bike>()
-                            where bike.Person.Id == riderId
+                            where bike.RidePerson.Id == riderId
                             select bike;
                 return (query).ToList();
             }

@@ -72,7 +72,7 @@ namespace ActivityLoggerApp.Controllers
                 bike = bikeRepositry.GetById(id),
             };
 
-            viewModel.riders = new SelectList(PersonRepositry.GetAll(), "Id", "Name", viewModel.bike.Person);
+            viewModel.riders = new SelectList(PersonRepositry.GetAll(), "Id", "Name", viewModel.bike.RidePerson);
 
             return View(viewModel);
         }
@@ -88,7 +88,7 @@ namespace ActivityLoggerApp.Controllers
                 BikeRepositry bikeRepositry = new BikeRepositry();
                 PersonRepositry PersonRepositry = new PersonRepositry();
 
-                editBike.bike.Person = PersonRepositry.GetById(editBike.bike.Person.Id);
+                editBike.bike.RidePerson = PersonRepositry.GetById(editBike.bike.RidePerson.Id);
                 bikeRepositry.Update(editBike.bike);
                 return RedirectToAction("Index");
             }

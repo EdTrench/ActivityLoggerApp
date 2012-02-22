@@ -7,9 +7,6 @@ namespace ActivityLoggerApp.Models.Activities
 {
     public class RideActivity : Activity
     {
-        public RideActivity()
-        {
-            
-        }
+        public virtual Bike Bike {get; set;}
     }
 }
