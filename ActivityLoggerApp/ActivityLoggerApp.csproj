@@ -84,7 +84,11 @@
     <Compile Include="Models\Bike.cs" />
     <Compile Include="Models\Factories\ActivityFactory.cs" />
     <Compile Include="Models\Interfaces\IActivity.cs" />
+    <Compile Include="Models\Interfaces\IPerson.cs" />
     <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\Persons\RidePerson.cs" />
+    <Compile Include="Models\Persons\RunPerson.cs" />
+    <Compile Include="Models\Persons\WalkPerson.cs" />
     <Compile Include="Repositories\Interfaces\IPersonRepositry.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Repositories\Interfaces\IBikeRepositry.cs" />

@@ -4,11 +4,9 @@ using System.Linq;
 using System.Web;
 using ActivityLoggerApp.Models.Interfaces;
 
-namespace ActivityLoggerApp.Models
+namespace ActivityLoggerApp.Models.Persons
 {
-    public abstract class Activity
+    public class WalkPerson : IPerson
     {
-        public Double Distance { get; set; }
-
     }
 }
