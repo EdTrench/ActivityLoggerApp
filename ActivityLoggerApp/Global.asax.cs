@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using ActivityLoggerApp.Repositories;
+using ActivityLoggerApp.Helpers;
 
 namespace ActivityLoggerApp
 {
@@ -35,6 +37,8 @@ namespace ActivityLoggerApp
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            DependencyResolver.SetResolver(new UnityDependencyResolver(ModelContainer.Instance));
         }
     }
 }

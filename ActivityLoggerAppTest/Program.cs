@@ -5,7 +5,6 @@ using System.Text;
 using ActivityLoggerApp.Models;
 using ActivityLoggerApp.Models.Factories;
 using ActivityLoggerApp.Repositories;
-using ActivityLoggerApp.Repositories.Persons;
 
 namespace ActivityLoggerAppTest
 {
@@ -18,8 +17,8 @@ namespace ActivityLoggerAppTest
 
             //Person rider = pf.CreatePerson("Rider");
 
-            RidePersonRepositry ridePersonRepositry = new RidePersonRepositry();
-            var model = ridePersonRepositry.GetById(1);
+            //PersonRepository ridePersonRepositry = new PersonRepository();
+            //var model = ridePersonRepositry.GetById(1);
 
 
         }

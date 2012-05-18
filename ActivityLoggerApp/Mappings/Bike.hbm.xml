@@ -7,13 +7,8 @@
     <id name="Id">
       <generator class="guid" />
     </id>
+    <many-to-one name ="Person" column="PersonId" lazy="false"/>
     <property name="Name" />
-    <many-to-one name ="RidePerson" column="PersonId" lazy="false"/>
-    <!--<bag name="Rider" inverse="true"/>
-      <key column="RiderId" />
-      <one-to-many class="Rider" />
-    </bag>-->
-    <!--<property name="Rider" />-->
     <property name="Type" />
   </class>
 

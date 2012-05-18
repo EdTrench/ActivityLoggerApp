@@ -5,10 +5,11 @@ using System.Web;
 using ActivityLoggerApp.Models;
 using NHibernate;
 using NHibernate.Linq;
+using ActivityLoggerApp.Repositories.Interfaces;
 
 namespace ActivityLoggerApp.Repositories
 {
-    public class LoginRepositry : ILoginRepositry
+    public class LoginRepositry : ILoginRepository
     {
         public void Add(Login login)
         {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using ActivityLoggerApp.Models.Interfaces;
-using ActivityLoggerApp.Models.Persons;
+using ActivityLoggerApp.Models;
 
 namespace ActivityLoggerApp.Models.Factories
 {
@@ -13,20 +13,7 @@ namespace ActivityLoggerApp.Models.Factories
 
         public Person CreatePerson(String personType)
         {
-            switch (personType)
-            {
-                case "Rider":
-                    person = new RidePerson();
-                    break;
-                case "Runner":
-                    person = new RunPerson();
-                    break;
-                case "Walker":
-                    person = new WalkPerson();
-                    break;
-            }
-
-            return person;
+            return person = new Person();
         }
     }
 }

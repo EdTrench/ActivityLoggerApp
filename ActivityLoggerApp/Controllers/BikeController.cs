@@ -4,23 +4,30 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ActivityLoggerApp.Models;
-using ActivityLoggerApp.Models.Persons;
 using ActivityLoggerApp.ViewModels;
 using ActivityLoggerApp.Repositories;
-using ActivityLoggerApp.Repositories.Persons;
-
+using ActivityLoggerApp.Repositories.Interfaces;
+using Microsoft.Practices.Unity;
+using ActivityLoggerApp.Helpers;
 
 namespace ActivityLoggerApp.Controllers
 {
     public class BikeController : Controller
     {
+        IBikeRepository _BikeRepository;
+        IPersonRepository _PersonRepository;
+
+        public BikeController(IBikeRepository bikeRepository, IPersonRepository personRepository)
+        {
+            _BikeRepository = bikeRepository;
+            _PersonRepository = personRepository;
+        }
+        
         //
         // GET: /Bike/
-
         public ActionResult Index()
         {
-            BikeRepositry repositry = new BikeRepositry();
-            var model = repositry.GetAll();
+            var model = _BikeRepository.GetAll();
             return View(model);
         }
 
@@ -29,8 +36,7 @@ namespace ActivityLoggerApp.Controllers
 
         public ActionResult Details(Int64 id)
         {
-            BikeRepositry repositry = new BikeRepositry();
-            var model = repositry.GetById(id);
+            var model = _BikeRepository.GetById(id);
             return View(model);
         }
 
@@ -39,20 +45,26 @@ namespace ActivityLoggerApp.Controllers
 
         public ActionResult Create()
         {
-            var model = new Bike();
-            return View(model);
+            var viewModel = new BikeViewModel();
+            viewModel.Persons = new SelectList(_PersonRepository.GetAll(), "Id", "Name");
+            viewModel.BikeTypes = Enumerable.Range(0, Enum.GetValues(typeof(ActivityLoggerApp.Helpers.Enums.BikeType)).Length).Select(x => new SelectListItem
+            {
+                Value = x.ToString(),
+                Text = ModelExtensions.ToFriendlyString((ActivityLoggerApp.Helpers.Enums.BikeType)x)
+            });
+
+            return View(viewModel);
         } 
 
         //
         // POST: /Bike/Create
 
         [HttpPost]
-        public ActionResult Create(Bike newBike)
+        public ActionResult Create(BikeViewModel newBike)
         {
             try
             {
-                BikeRepositry repositry = new BikeRepositry();
-                repositry.Add(newBike);
+                _BikeRepository.Add(newBike.Bike);
                 return RedirectToAction("Index");
             }
             catch
@@ -66,15 +78,19 @@ namespace ActivityLoggerApp.Controllers
  
         public ActionResult Edit(Int64 id)
         {
-            BikeRepositry bikeRepositry = new BikeRepositry();
-            RidePersonRepositry ridePersonRepositry = new RidePersonRepositry();
-
             var viewModel = new BikeViewModel
             {
-                Bike = bikeRepositry.GetById(id),
+                Bike = _BikeRepository.GetById(id),
             };
 
-            viewModel.Riders = new SelectList(ridePersonRepositry.GetAll(), "Id", "Name", viewModel.Bike.RidePerson);
+            viewModel.Persons = new SelectList(_PersonRepository.GetAll(), "Id", "Name", viewModel.Bike.Person);
+            viewModel.BikeTypes = Enumerable.Range(0, Enum.GetValues(typeof(ActivityLoggerApp.Helpers.Enums.BikeType)).Length).Select(x => new SelectListItem
+            {
+                Selected = x.Equals((int)viewModel.Bike.Type),
+                Value = x.ToString(),
+                Text = ModelExtensions.ToFriendlyString((ActivityLoggerApp.Helpers.Enums.BikeType)x)
+            });
+
 
             return View(viewModel);
         }
@@ -87,11 +103,7 @@ namespace ActivityLoggerApp.Controllers
         {
             try
             {
-                BikeRepositry bikeRepositry = new BikeRepositry();
-                RidePersonRepositry ridePersonRepositry = new RidePersonRepositry();
-
-                //editBike.Bike.RidePerson = ridePersonRepositry.GetById(editBike.Bike.RidePerson.Id);
-                bikeRepositry.Update(editBike.Bike);
+                _BikeRepository.Update(editBike.Bike);
                 return RedirectToAction("Index");
             }
             catch
@@ -105,8 +117,7 @@ namespace ActivityLoggerApp.Controllers
  
         public ActionResult Delete(Int64 id)
         {
-            BikeRepositry repositry = new BikeRepositry();
-            var model = repositry.GetById(id);
+            var model = _BikeRepository.GetById(id);
             return View(model);
         }
 
@@ -118,8 +129,7 @@ namespace ActivityLoggerApp.Controllers
         {
             try
             {
-                BikeRepositry repositry = new BikeRepositry();
-                repositry.Remove(removeBike); 
+                _BikeRepository.Remove(removeBike); 
                 return RedirectToAction("Index");
             }
             catch

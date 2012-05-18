@@ -10,6 +10,7 @@ namespace ActivityLoggerApp.ViewModels
     public class BikeViewModel
     {
         public virtual Bike Bike { get; set; }
-        public virtual SelectList Riders { get; set; }
+        public virtual SelectList Persons { get; set; }
+        public virtual IEnumerable<SelectListItem> BikeTypes { get; set; }
     }
 }

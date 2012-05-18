@@ -5,10 +5,11 @@ using System.Web;
 using ActivityLoggerApp.Models;
 using NHibernate;
 using NHibernate.Linq;
+using ActivityLoggerApp.Repositories.Interfaces;
 
 namespace ActivityLoggerApp.Repositories
 {
-    public class BikeRepositry : IBikeRepositry
+    public class BikeRepositry : IBikeRepository
     {
         public void Add(Bike bike)
         {
@@ -46,7 +47,7 @@ namespace ActivityLoggerApp.Repositories
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 var query = from bike in session.Query<Bike>()
-                            where bike.RidePerson.Id == riderId
+                            where bike.Person.Id == riderId
                             select bike;
                 return (query).ToList();
             }
