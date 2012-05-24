@@ -12,19 +12,12 @@ public static class HtmlExtensions
         var sb = new StringBuilder();
         foreach (var item in values)
         {
-            
-            //sb.Append(htmlHelper.RadioButtonFor(ex, "BikeType" + item.Value.ToString(),(item.Selected ? new { Checked = "" } : null)));
-            sb.Append(htmlHelper.RadioButton("BikeType" + item.Value.ToString(), item.Value, false, "id=""BikeType""" + item.Value.ToString()));
+            sb.Append(htmlHelper.RadioButtonFor(ex, item.Value.ToString(), item.Selected ? (object) new { @Id = item.Value.ToString(), @checked = "checked" } : new { @Id = item.Value.ToString() }));
             var span = new TagBuilder("label");
-            span.Attributes.Add("for", "BikeType" + item.Value.ToString());
+            span.Attributes.Add("for", item.Value.ToString());
             span.SetInnerText(item.Text);
             sb.Append(span.ToString());
         }
         return MvcHtmlString.Create(sb.ToString());
     }
 }
-
-
-
-//<input type='radio' id='biketype1' />
-//<label for='biketype1'>Road</label>

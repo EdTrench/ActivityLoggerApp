@@ -1,12 +1,13 @@
 ﻿@model ActivityLoggerApp.ViewModels.BikeViewModel
-
+@*@using ActivityLoggerApp.Helpers*@
 @{
     ViewBag.Title = "Create";
 }
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.ValidationSummary(true)
     <fieldset>
         <legend>Bike</legend>

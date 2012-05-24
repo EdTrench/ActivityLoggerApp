@@ -1,5 +1,5 @@
 ﻿@model ActivityLoggerApp.ViewModels.BikeViewModel
-
+@*@using ActivityLoggerApp.Helpers*@
 @{
     ViewBag.Title = "Edit";
 }
@@ -38,10 +38,8 @@
             @Html.LabelFor(model => model.Bike.Type)
         </div>
         <div class="editor-field" id="radio">
-            @Html.RadioButtonListFor(
-            model => model.Bike.Type,
-            Model.BikeTypes
-            )
+            @Html.RadioButtonListFor(x => x.Bike.Type, Model.BikeTypes)
+            
         </div>
 
         <p>
