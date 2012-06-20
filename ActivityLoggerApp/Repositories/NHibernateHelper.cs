@@ -24,14 +24,15 @@ namespace ActivityLoggerApp.Repositories
             {
                 return Fluently.Configure()
                 .Database(MsSqlConfiguration.MsSql2008
-                    .ConnectionString(m => m.Server(@".\SQLEXPRESS")
-                        .Database("CycleLoggerDb")
-                        .TrustedConnection()))
+                    .ConnectionString(m => m.Server(@"f215daec-cb1e-4323-a8ac-a07400f27060.sqlserver.sequelizer.com")
+                        .Database("dbf215daeccb1e4323a8aca07400f27060")
+                        //.TrustedConnection()
+                        .Username("gsohibevzlzdwyps")
+                        .Password("43ccUr7HAUwCtxWuCNXEappz2rbfuRCVAZgS8rQ7TaYHNQFEMHLnhfRMMKjBq2nS")))
                 .Mappings(m => m.FluentMappings.AddFromAssembly(Assembly.GetExecutingAssembly()))
                     //.ExposeConfiguration(ExportSchema)
                 .BuildSessionFactory();
-
-
+                
                 //if (_sessionFactory == null)
                 //{
                 //    Bike bike = new Bike();
