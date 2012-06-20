@@ -14,7 +14,7 @@ namespace ActivityLoggerApp.Controllers
 
         //
         // GET: /Account/LogOn
-
+        [AllowAnonymous]
         public ActionResult LogOn()
         {
             return View();
@@ -24,6 +24,7 @@ namespace ActivityLoggerApp.Controllers
         // POST: /Account/LogOn
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult LogOn(LogOnModel model, string returnUrl)
         {
             if (ModelState.IsValid)
@@ -63,7 +64,7 @@ namespace ActivityLoggerApp.Controllers
 
         //
         // GET: /Account/Register
-
+        [AllowAnonymous]
         public ActionResult Register()
         {
             return View();
@@ -73,6 +74,7 @@ namespace ActivityLoggerApp.Controllers
         // POST: /Account/Register
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult Register(RegisterModel model)
         {
             if (ModelState.IsValid)

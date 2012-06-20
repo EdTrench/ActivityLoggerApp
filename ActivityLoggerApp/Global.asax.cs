@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using ActivityLoggerApp.Repositories;
 using ActivityLoggerApp.Helpers;
+using ActivityLoggerApp.Filters;
 
 namespace ActivityLoggerApp
 {
@@ -16,6 +17,7 @@ namespace ActivityLoggerApp
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
+            filters.Add(new LogonAuthorize());
             filters.Add(new HandleErrorAttribute());
         }
 
