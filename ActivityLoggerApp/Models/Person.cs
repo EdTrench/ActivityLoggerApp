@@ -13,5 +13,6 @@ namespace ActivityLoggerApp.Models
         public virtual DateTime Dob { get; set; }
         public virtual IList<Bike> Bikes { get; set; }
         public virtual Int16 Category { get; set; }
+        public virtual Guid UserId { get; set; }
     }
 }

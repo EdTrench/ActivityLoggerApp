@@ -29,6 +29,11 @@
         @Html.DisplayFor(model => model.Category)
     </div>
 
+    <div class="display-label">User Id</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserId)
+    </div>
+    
     <div class="display-label">Bike(s)</div>
         @foreach (var bike in Model.Bikes)
         {

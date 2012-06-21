@@ -42,6 +42,17 @@ namespace ActivityLoggerApp.Repositories
             }
         }
 
+        public Person GetByUserId(Guid id)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                var query = from ridePerson in session.Query<Person>()
+                            where ridePerson.UserId == id
+                            select ridePerson;
+                return query.Single();
+            }
+        }
+
         public void Remove(Person person)
         {
             using (ISession session = NHibernateHelper.OpenSession())

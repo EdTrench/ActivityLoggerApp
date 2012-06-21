@@ -24,6 +24,9 @@
         <th>
             Category
         </th>
+        <th>
+            User Id
+        </th>
         <th></th>
     </tr>
 
@@ -41,6 +44,10 @@
         <td>
             @Html.DisplayFor(modelItem => item.Category)
         </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |

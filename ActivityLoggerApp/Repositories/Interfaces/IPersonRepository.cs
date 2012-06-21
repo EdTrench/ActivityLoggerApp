@@ -13,5 +13,6 @@ namespace ActivityLoggerApp.Repositories.Interfaces
         void Remove(Person person);
         Person GetById(Int64 id);
         List<Person> GetAll();
+        Person GetByUserId(Guid id);
     }
 }

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using ActivityLoggerApp.Repositories;
 using ActivityLoggerApp.Models;
 using ActivityLoggerApp.Controllers;
+using ActivityLoggerApp.Helpers;
 
 namespace ActivityLoggerApp.Controllers.Persons
 {
@@ -15,7 +16,9 @@ namespace ActivityLoggerApp.Controllers.Persons
         // GET: /Person/
         public ActionResult Index()
         {
+            var id = ModelExtensions.GetUserId();
             PersonRepository ridePersonRepositry = new PersonRepository();
+            //var model = ridePersonRepositry.GetByUserId(id);
             var model = ridePersonRepositry.GetAll();
             return View(model);
         }
