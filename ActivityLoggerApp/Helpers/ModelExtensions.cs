@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Security;
 
 namespace ActivityLoggerApp.Helpers
 {
@@ -29,11 +28,6 @@ namespace ActivityLoggerApp.Helpers
                 default:
                     return "NOT SET";
             }
-        }
-
-        public static Guid GetUserId()
-        {
-            return (Guid)Membership.GetUser().ProviderUserKey;
         }
     }
 }

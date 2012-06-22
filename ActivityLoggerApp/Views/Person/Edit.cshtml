@@ -1,4 +1,4 @@
-﻿@model ActivityLoggerApp.Models.Person
+﻿@model ActivityLoggerApp.ViewModels.PersonViewModel
 
 @{
     ViewBag.Title = "Edit";
@@ -11,84 +11,49 @@
     <fieldset>
         <legend>Rider</legend>
 
-        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Person.Id)
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Name)
+            @Html.LabelFor(model => model.Person.Name)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Name)
-            @Html.ValidationMessageFor(model => model.Name)
+            @Html.EditorFor(model => model.Person.Name)
+            @Html.ValidationMessageFor(model => model.Person.Name)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Weight)
+            @Html.LabelFor(model => model.Person.Weight)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Weight)
-            @Html.ValidationMessageFor(model => model.Weight)
+            @Html.EditorFor(model => model.Person.Weight)
+            @Html.ValidationMessageFor(model => model.Person.Weight)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Dob)
+            @Html.LabelFor(model => model.Person.Dob)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Dob)
-            @Html.ValidationMessageFor(model => model.Dob)
+            @Html.EditorFor(model => model.Person.Dob)
+            @Html.ValidationMessageFor(model => model.Person.Dob)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Category)
+            @Html.LabelFor(model => model.Person.Category)
         </div>
         <div class="editor-field" id="radio">
-            @Html.EditorFor(model => model.Category)
-            @Html.ValidationMessageFor(model => model.Category)
+            @Html.EditorFor(model => model.Person.Category)
+            @Html.ValidationMessageFor(model => model.Person.Category)
         </div>
-
-        <table>
-            <tr>
-                <th>Bikes</th>
-            </tr>
-
-            @foreach (var bike in Model.Bikes)
-            {
-                <tr>
-                    <td>@bike.Name</td>
-                </tr>
-            }
         
-        </table>
-
-
-
-        <table>
-            <tr>
-                <th>Bikes</th>
-            </tr>
-
-             @foreach (var bike in ViewBag.Bikes)
-             {
-                <tr>
-                    <td>@bike.Name</td>
-                </tr>
-             }
-        
-        </table>
-
-        <fieldset>
-            <legend>Edit Bike</legend>
-            <p>
-                @*@Html.LabelFor(bike => bike.Bikes.Name)*@
-                @*@Html.DropDownListFor(bike => bike., ViewBag.Bikes as SelectList)*@
-            
-            </p>
-        
-        
-        </fieldset>
-
-        @*        <div class="editor-field">
-            @Html.DropDownListFor(model => model.Bikes, new SelectList(Model.Bikes))
-        </div>*@
+@*        <div class="editor-label">
+            @Html.LabelFor(model => model.Person., "Bike Name")
+        </div>
+*@        <div class="editor-field">
+            @Html.DropDownListFor(
+            model => model.Person.Id,
+            Model.Bikes
+            )
+        </div>
 
         <p>
             <input type="submit" value="Save" />

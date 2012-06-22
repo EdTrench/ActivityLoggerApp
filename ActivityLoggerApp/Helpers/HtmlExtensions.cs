@@ -4,6 +4,7 @@ using System.Text;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System;
+using System.Web.Security;
 
 public static class HtmlExtensions
 {
@@ -19,5 +20,10 @@ public static class HtmlExtensions
             sb.Append(span.ToString());
         }
         return MvcHtmlString.Create(sb.ToString());
+    }
+
+    public static Guid GetUserId()
+    {
+        return (Guid)Membership.GetUser().ProviderUserKey;
     }
 }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ActivityLoggerApp.Models.Person>
+﻿@model ActivityLoggerApp.Models.Person
 
 @{
     ViewBag.Title = "Index";
@@ -7,53 +7,32 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
 </p>
-<table>
-    <tr>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Weight)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Weight)
+    </div>
     
-        <th>
-            Name
-        </th>
-        <th>
-            Weight
-        </th>
-        <th>
-            Dob
-        </th>
-        <th>
-            Category
-        </th>
-        <th>
-            User Id
-        </th>
-        <th></th>
-    </tr>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Dob)
+    </div>
+    <div>
+        @Html.DisplayFor(model => model.Dob)
+    </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Weight)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Dob)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserId)
-        </td>
-
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
-
-</table>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Category)
+    </div>
+    <div>
+        @Html.DisplayFor(model => model.Category)
+    </div>

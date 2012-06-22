@@ -7,19 +7,29 @@ using ActivityLoggerApp.Repositories;
 using ActivityLoggerApp.Models;
 using ActivityLoggerApp.Controllers;
 using ActivityLoggerApp.Helpers;
+using ActivityLoggerApp.ViewModels;
+using ActivityLoggerApp.Repositories.Interfaces;
 
 namespace ActivityLoggerApp.Controllers.Persons
 {
     public class PersonController : Controller
     {
+        IPersonRepository _PersonRepository;
+        IBikeRepository _BikeRepository;
+
+        public PersonController(IPersonRepository personRepository, IBikeRepository bikeRepository)
+        {
+            _PersonRepository = personRepository;
+            _BikeRepository = bikeRepository;
+        }
+        
         //
         // GET: /Person/
         public ActionResult Index()
         {
-            var id = ModelExtensions.GetUserId();
+            var id = HtmlExtensions.GetUserId();
             PersonRepository ridePersonRepositry = new PersonRepository();
-            //var model = ridePersonRepositry.GetByUserId(id);
-            var model = ridePersonRepositry.GetAll();
+            var model = ridePersonRepositry.GetByUserId(id);
             return View(model);
         }
 
@@ -61,24 +71,26 @@ namespace ActivityLoggerApp.Controllers.Persons
         // GET: /Person/Edit/5
         public ActionResult Edit(Int64 id)
         {
-            PersonRepository ridePersonRepositry = new PersonRepository();
-            BikeRepositry bikeRepositry = new BikeRepositry();
 
-            var model = ridePersonRepositry.GetById(id);
-            ViewBag.Bikes = bikeRepositry.GetByPersonId(id);
+            var viewModel = new PersonViewModel
+            {
+                Person = _PersonRepository.GetById(id)
+            };
 
-            return View(model);
+            viewModel.Bikes = new SelectList(_BikeRepository.GetByPersonId(id), "Id", "Name", viewModel.Person);
+
+            return View(viewModel);
         }
 
         //
         // POST: /Person/Edit/5
         [HttpPost]
-        public  ActionResult Edit(Person person)
+        public  ActionResult Edit(PersonViewModel person)
         {
             try
             {
                 PersonRepository ridePersonRepositry = new PersonRepository();
-                ridePersonRepositry.Update(person);
+                ridePersonRepositry.Update(person.Person);
                 return RedirectToAction("Index");
             }
             catch

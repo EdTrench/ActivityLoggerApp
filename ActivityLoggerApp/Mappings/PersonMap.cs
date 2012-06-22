@@ -21,6 +21,7 @@ namespace ActivityLoggerApp.Mappings
             Map(x => x.Weight);
             Map(x => x.Dob);
             Map(x => x.Category);
+            Map(x => x.UserId);
         }
     }
 }
