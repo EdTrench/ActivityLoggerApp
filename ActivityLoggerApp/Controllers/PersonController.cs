@@ -28,8 +28,7 @@ namespace ActivityLoggerApp.Controllers.Persons
         public ActionResult Index()
         {
             var id = HtmlExtensions.GetUserId();
-            PersonRepository ridePersonRepositry = new PersonRepository();
-            var model = ridePersonRepositry.GetByUserId(id);
+            var model = _PersonRepository.GetByUserId(id);
             return View(model);
         }
 
@@ -37,8 +36,7 @@ namespace ActivityLoggerApp.Controllers.Persons
         // GET: /Person/Details/5
         public  ActionResult Details(Int64 id)
         {
-            PersonRepository ridePersonRepositry = new PersonRepository();
-            var model = ridePersonRepositry.GetById(id);
+            var model = _PersonRepository.GetById(id);
             return View(model);
         }
 
@@ -57,8 +55,7 @@ namespace ActivityLoggerApp.Controllers.Persons
         {
             try
             {
-                PersonRepository RidePersonRepositry = new PersonRepository();
-                RidePersonRepositry.Add(person);
+                _PersonRepository.Add(person);
                 return RedirectToAction("Index");
             }
             catch
@@ -77,7 +74,7 @@ namespace ActivityLoggerApp.Controllers.Persons
                 Person = _PersonRepository.GetById(id)
             };
 
-            viewModel.Bikes = new SelectList(_BikeRepository.GetByPersonId(id), "Id", "Name", viewModel.Person);
+            viewModel.Bikes = new SelectList(_BikeRepository.GetByPersonId(id), "Id", "Name");
 
             return View(viewModel);
         }
@@ -89,8 +86,7 @@ namespace ActivityLoggerApp.Controllers.Persons
         {
             try
             {
-                PersonRepository ridePersonRepositry = new PersonRepository();
-                ridePersonRepositry.Update(person.Person);
+                _PersonRepository.Update(person.Person);
                 return RedirectToAction("Index");
             }
             catch
@@ -102,9 +98,8 @@ namespace ActivityLoggerApp.Controllers.Persons
         //
         // GET: /Person/Delete/5
         public  ActionResult Delete(Int64 id)
-        {
-            PersonRepository ridePersonRepositry = new PersonRepository();
-            var model = ridePersonRepositry.GetById(id);
+        {            
+            var model = _PersonRepository.GetById(id);
             return View(model);
         }
 
@@ -116,8 +111,7 @@ namespace ActivityLoggerApp.Controllers.Persons
         {
             try
             {
-                PersonRepository ridePersonRepositry = new PersonRepository();
-                ridePersonRepositry.Remove(person);
+                _PersonRepository.Remove(person);
                 return RedirectToAction("Index");
             }
             catch

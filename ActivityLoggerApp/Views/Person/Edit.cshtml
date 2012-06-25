@@ -44,17 +44,17 @@
             @Html.EditorFor(model => model.Person.Category)
             @Html.ValidationMessageFor(model => model.Person.Category)
         </div>
-        
-@*        <div class="editor-label">
-            @Html.LabelFor(model => model.Person., "Bike Name")
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Person.Bikes, "Bikes")
         </div>
-*@        <div class="editor-field">
-            @Html.DropDownListFor(
-            model => model.Person.Id,
+        <div class="editor-field">
+            @Html.ListBoxFor(
+            model => model.Person.Bikes,
             Model.Bikes
             )
         </div>
-
+        
         <p>
             <input type="submit" value="Save" />
         </p>
