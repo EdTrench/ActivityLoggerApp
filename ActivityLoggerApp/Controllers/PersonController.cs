@@ -82,11 +82,11 @@ namespace ActivityLoggerApp.Controllers.Persons
         //
         // POST: /Person/Edit/5
         [HttpPost]
-        public  ActionResult Edit(PersonViewModel person)
+        public  ActionResult Edit(PersonViewModel editPerson)
         {
             try
             {
-                _PersonRepository.Update(person.Person);
+                _PersonRepository.Update(editPerson.Person);
                 return RedirectToAction("Index");
             }
             catch
